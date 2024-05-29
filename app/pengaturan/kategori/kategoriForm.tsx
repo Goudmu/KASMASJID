@@ -26,7 +26,7 @@ const KategoriForm = async ({ idParams }: any) => {
         />
       </div>
       <div>
-        <KategoriTable kategoriSetting={kategoriSetting} />
+        <KategoriTable kategoriSetting={kategoriSetting} params={idParams} />
       </div>
     </div>
   );

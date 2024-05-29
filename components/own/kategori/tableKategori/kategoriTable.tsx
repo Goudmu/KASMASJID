@@ -2,8 +2,8 @@
 import { KategoriColumns } from "./column";
 import { DataTable } from "./dataTable";
 
-export default function KategoriTable({ kategoriSetting }: any) {
-  const columns = KategoriColumns();
+export default function KategoriTable({ kategoriSetting, params }: any) {
+  const columns = KategoriColumns(params);
   return (
     <section>
       <DataTable columns={columns} data={kategoriSetting} />

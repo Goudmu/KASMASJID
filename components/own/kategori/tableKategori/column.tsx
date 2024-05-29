@@ -19,8 +19,9 @@ import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import InputKategori from "../formKategori/InputKategori";
 
-export const KategoriColumns: () => ColumnDef<CategoryType>[] = () => {
-  const params = useSearchParams().getAll("id")[0];
+export const KategoriColumns: (params: any) => ColumnDef<CategoryType>[] = (
+  params
+) => {
   const columns: ColumnDef<CategoryType>[] = [
     {
       accessorKey: "tipe",
