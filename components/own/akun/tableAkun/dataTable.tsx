@@ -25,16 +25,11 @@ import {
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { LoadingSpinner } from "../../spinner";
-import { useSearchParams } from "next/navigation";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
-
-export const getParams = () => {
-  return useSearchParams().getAll("id")[0];
-};
 
 export function DataTable<TData, TValue>({
   columns,
@@ -78,8 +73,8 @@ export function DataTable<TData, TValue>({
   }
   return (
     <div className="flex flex-col gap-10">
-      <div className="rounded-md ">
-        <div className=" rounded-md border bg-white">
+      <div className="rounded-md border bg-white px-5 py-2">
+        <div className=" rounded-md border">
           <Table>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
@@ -143,7 +138,6 @@ export function DataTable<TData, TValue>({
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="bg-white"
           >
             Previous
           </Button>
@@ -152,7 +146,6 @@ export function DataTable<TData, TValue>({
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="bg-white"
           >
             Next
           </Button>

@@ -17,7 +17,6 @@ import { BukuKasType } from "@/lib/mongodb/models";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import InputBukuKas from "../formBukuKas/InputBukuKas";
-import { getParams } from "./dataTable";
 
 export const BukuKasColumns: ColumnDef<BukuKasType>[] = [
   {
@@ -80,7 +79,7 @@ export const BukuKasColumns: ColumnDef<BukuKasType>[] = [
     header: "Buka",
     cell: ({ row }) => {
       const data = row.original;
-      const params = getParams();
+      const params = useSearchParams().getAll("id")[0];
 
       const bukaBukuKasHanlder = async () => {
         await revalidateAll(data._id);
@@ -110,7 +109,7 @@ export const BukuKasColumns: ColumnDef<BukuKasType>[] = [
     header: "Edit / Delete",
     cell: ({ row }) => {
       const user = row.original;
-      const params = getParams();
+      const params = useSearchParams().getAll("id")[0];
 
       const removeHandler = async (_id: string) => {
         const res = await fetch("/api/bukukas", {

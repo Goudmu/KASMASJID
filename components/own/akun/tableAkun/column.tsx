@@ -17,7 +17,7 @@ import { revalidateKategori } from "@/lib/actions";
 import { CategoryType } from "@/lib/mongodb/models";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
-import InputKategori from "../formKategori/InputKategori";
+import InputKategori from "../formAkun/InputKategori";
 
 export const KategoriColumns: ColumnDef<CategoryType>[] = [
   {
@@ -62,19 +62,6 @@ export const KategoriColumns: ColumnDef<CategoryType>[] = [
       );
     },
   },
-  // {
-  //   accessorKey: "statusId",
-  //   header: "Status",
-  //   cell: ({ row }) => {
-  //     const newStatus = row.getValue("statusId") ? "Aktif" : "Non Aktif";
-
-  //     return (
-  //       <div className="text-xs md:text-sm text-left font-medium">
-  //         {newStatus}
-  //       </div>
-  //     );
-  //   },
-  // },
   {
     id: "actions",
     header: "Edit / Delete",

@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { capitalizeFirstLetter } from "@/lib/utils";
-import ComponentBukuKas from "./formBukuKas";
+import ComponentKategori from "./formKategori";
 
-const InputBukuKas = ({ kegiatanId, tipe, dataBukukas }: any) => {
+const InputKategori = ({ kegiatanId, tipe, dataKategori }: any) => {
   return (
     <div
       className={`${
@@ -26,26 +26,26 @@ const InputBukuKas = ({ kegiatanId, tipe, dataBukukas }: any) => {
         <AlertDialogTrigger asChild>
           {tipe == "edit" ? (
             <span className=" cursor-pointer items-center rounded-sm px-2 py-1.5 text-sm w-full">
-              {capitalizeFirstLetter(tipe)} Buku Kas
+              {capitalizeFirstLetter(tipe)} Kategori
             </span>
           ) : (
-            <Button>{capitalizeFirstLetter(tipe)} Buku Kas</Button>
+            <Button>{capitalizeFirstLetter(tipe)} Kategori</Button>
           )}
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Buku Kas</AlertDialogTitle>
+            <AlertDialogTitle>Kategori</AlertDialogTitle>
             <AlertDialogDescription>
-              Aksi ini akan {tipe == "edit" ? "mengedit" : "menambah"} Buku Kas
+              Aksi ini akan {tipe == "edit" ? "mengedit" : "menambah"} Kategori
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <div className=" flex flex-col gap-5 w-full">
               <div>
-                <ComponentBukuKas
+                <ComponentKategori
                   kegiatanId={kegiatanId}
                   tipe={tipe}
-                  dataBukukas={dataBukukas}
+                  dataKategori={dataKategori}
                 />
               </div>
             </div>
@@ -56,4 +56,4 @@ const InputBukuKas = ({ kegiatanId, tipe, dataBukukas }: any) => {
   );
 };
 
-export default InputBukuKas;
+export default InputKategori;
