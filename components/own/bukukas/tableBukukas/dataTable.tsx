@@ -25,16 +25,11 @@ import {
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { LoadingSpinner } from "../../spinner";
-import { useSearchParams } from "next/navigation";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
-
-export const getParams = () => {
-  return useSearchParams().getAll("id")[0];
-};
 
 export function DataTable<TData, TValue>({
   columns,
