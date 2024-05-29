@@ -1,0 +1,73 @@
+import { Transaksi2 } from "@/lib/mongodb/models";
+import { connectToDB } from "@/lib/mongodb/utils";
+import { NextRequest, NextResponse } from "next/server";
+
+export const GET = async () => {
+  try {
+    await connectToDB();
+    const transaksi = await Transaksi2.find();
+    return NextResponse.json({ transaksi: transaksi });
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
+export const POST = async (req: NextRequest) => {
+  try {
+    await connectToDB();
+    const { date, amount, tipe, desc, kategoriId, kegiatanId, userId } =
+      await req.json();
+
+    const transaksi = await Transaksi2.create({
+      date,
+      amount,
+      tipe,
+      desc,
+      kategoriId,
+      kegiatanId: kegiatanId,
+      userId: "65fd03eacbed6186259b1a5e",
+    });
+    return NextResponse.json({ transaksi: transaksi });
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
+export const PUT = async (req: NextRequest) => {
+  try {
+    await connectToDB();
+    const { date, amount, tipe, desc, kategoriId, kegiatanId, userId, _id } =
+      await req.json();
+
+    const transaksi = await Transaksi2.findByIdAndUpdate(
+      { _id: _id },
+      {
+        date,
+        amount,
+        tipe,
+        desc,
+        kategoriId,
+        kegiatanId,
+        userId,
+      }
+    );
+    return NextResponse.json({ transaksi: transaksi });
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
+export const DELETE = async (res: NextRequest) => {
+  try {
+    const { _id } = await res.json();
+    await connectToDB();
+    const transaksi = await Transaksi2.findByIdAndDelete({ _id });
+    return NextResponse.json({ message: "transaksi deleted" }, { status: 201 });
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
