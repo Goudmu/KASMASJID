@@ -1,5 +1,4 @@
 "use client";
-
 import { ColumnDef } from "@tanstack/react-table";
 
 import { MoreHorizontal } from "lucide-react";
@@ -15,7 +14,6 @@ import {
 import { capitalizeFirstLetter } from "@/lib/utils";
 import { revalidateKategori } from "@/lib/actions";
 import { CategoryType } from "@/lib/mongodb/models";
-import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import InputKategori from "../formKategori/InputKategori";
 
