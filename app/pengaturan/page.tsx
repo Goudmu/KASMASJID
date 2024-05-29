@@ -14,7 +14,7 @@ export default function SelectForm() {
         {/* AKUN */}
 
         {/* FORM */}
-        <AkunForm />
+        {/* <AkunForm /> */}
       </div>
     </>
   );
