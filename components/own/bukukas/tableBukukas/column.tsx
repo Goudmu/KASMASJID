@@ -19,7 +19,7 @@ import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import InputBukuKas from "../formBukuKas/InputBukuKas";
 
-export const columns: ColumnDef<BukuKasType>[] = [
+export const BukuKasColumns: ColumnDef<BukuKasType>[] = [
   {
     accessorKey: "name",
     header: "Name",

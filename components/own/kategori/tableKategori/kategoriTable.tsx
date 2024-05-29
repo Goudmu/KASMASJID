@@ -1,10 +1,10 @@
-import { columns } from "./column";
+import { KategoriColumns } from "./column";
 import { DataTable } from "./dataTable";
 
 export default function KategoriTable({ kategoriSetting }: any) {
   return (
     <section>
-      <DataTable columns={columns} data={kategoriSetting} />
+      <DataTable columns={KategoriColumns} data={kategoriSetting} />
     </section>
   );
 }

@@ -17,7 +17,7 @@ export type TransactionType = {
   userId: string;
 };
 
-export const columns: ColumnDef<TransactionType>[] = [
+export const LaporanPerBulanColumns: ColumnDef<TransactionType>[] = [
   {
     accessorKey: "date",
     header: "Date",

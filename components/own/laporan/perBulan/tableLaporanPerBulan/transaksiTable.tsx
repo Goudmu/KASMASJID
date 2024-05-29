@@ -1,10 +1,10 @@
-import { columns } from "./columnPenerimaan";
+import { LaporanPerBulanColumns } from "./columnPenerimaan";
 import { DataTable } from "./dataTable";
 
 export default async function LaporanTable({ transaksiLaporan }: any) {
   return (
     <section>
-      <DataTable columns={columns} data={transaksiLaporan} />
+      <DataTable columns={LaporanPerBulanColumns} data={transaksiLaporan} />
     </section>
   );
 }

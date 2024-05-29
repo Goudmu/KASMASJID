@@ -1,4 +1,4 @@
-import { columns } from "./column";
+import { LaporanPerKategoriColumns } from "./column";
 import { DataTable } from "./dataTable";
 
 export default async function LaporanTablePerKategori({
@@ -6,7 +6,7 @@ export default async function LaporanTablePerKategori({
 }: any) {
   return (
     <section>
-      <DataTable columns={columns} data={transaksiLaporan} />
+      <DataTable columns={LaporanPerKategoriColumns} data={transaksiLaporan} />
     </section>
   );
 }

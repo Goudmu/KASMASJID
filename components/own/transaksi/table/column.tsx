@@ -30,7 +30,7 @@ export type TransactionType = {
   userId: string;
 };
 
-export const columns: ColumnDef<TransactionType>[] = [
+export const TransaksiColumns: ColumnDef<TransactionType>[] = [
   {
     accessorKey: "_id",
     header: "Id",
