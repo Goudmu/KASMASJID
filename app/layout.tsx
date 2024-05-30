@@ -35,8 +35,8 @@ export default function RootLayout({
         >
           <Suspense fallback={<div>Loading...</div>}>
             <HeaderOwn />
-            {children}
           </Suspense>
+          {children}
           <ToastContainer
             position="bottom-right"
             theme="light"
