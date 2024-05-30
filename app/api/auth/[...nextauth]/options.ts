@@ -1,6 +1,9 @@
 import { User2 } from "@/lib/mongodb/models";
 import CredentialProvider from "next-auth/providers/credentials";
 
+// JWT TOKEN
+const jwt = require("jsonwebtoken");
+
 export const options = {
   providers: [
     CredentialProvider({
@@ -34,6 +37,18 @@ export const options = {
           });
           if (foundUser) {
             delete foundUser.password;
+
+            // Convert foundUser to a plain JavaScript object
+            const userPayload = foundUser.toObject();
+
+            const token = jwt.sign(
+              userPayload,
+              process.env.JWT_SECRET as string,
+              {
+                expiresIn: "24h", // Example expiration time
+              }
+            );
+            foundUser.jwt = token;
             return foundUser;
           }
         } catch (error: any) {
@@ -50,13 +65,17 @@ export const options = {
   callbacks: {
     async jwt({ token, user }: { token: any; user?: any }) {
       if (user) {
-        token.role = user.role;
+        token = user.token;
       }
       return token;
     },
     async session({ session, token }: { session: any; token: any }) {
       if (session?.user) {
-        session.user.role = token.role;
+        // Access the JWT token from the user object
+        const jwtToken = session.user.jwt;
+
+        // Use the JWT token as needed
+        console.log("JWT Token:", jwtToken);
       }
       return session;
     },

@@ -39,7 +39,7 @@ const LoginForm = () => {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast.success("submit");
+    toast.success("Please Wait...");
     const res = await signIn("credentials", {
       username: data.username,
       password: data.password,
