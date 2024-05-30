@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { redirect, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import LogoutComponent from "../signOut";
 import { useSession } from "next-auth/react";
 

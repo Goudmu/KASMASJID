@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SessionProvider } from "next-auth/react";
 import AuthProvider from "@/components/own/provider/AuthProvider";
+import React, { Suspense } from "react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function RootLayout({
           )}
         >
           <HeaderOwn />
-          {children}
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
           <ToastContainer
             position="bottom-right"
             theme="light"
