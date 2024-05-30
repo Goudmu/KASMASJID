@@ -33,8 +33,10 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          <HeaderOwn />
-          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <HeaderOwn />
+            {children}
+          </Suspense>
           <ToastContainer
             position="bottom-right"
             theme="light"

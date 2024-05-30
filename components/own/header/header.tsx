@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import LogoutComponent from "../signOut";
 import { useSession } from "next-auth/react";
+import { Suspense } from "react";
 
 export default function HeaderOwn() {
   const params = useSearchParams().getAll("id")[0];
